@@ -9,38 +9,37 @@ import os, shutil
 driver = webdriver.Chrome()
 
 driver.get("https://discord.com/login")
-time.sleep(6)
+time.sleep(4) #You can change the time that takes the bot to log you in
 
-#--------------- Edit Here -------------------------------------------------------------
 
-# Enter your account details here 
+#-------------------------------------- 
 username = '' #Enter your username
 password = '' #Enter your password
 
-# Copy the URL of channel where you wanna send messages and paste below
+# Copy and paste the URL of the channel where you want to the send messages
 channelURL = ""
+#--------------------------------------
 
-#-------------- Edit End ----------------------------------------------------------------
 
-# Initialize and input email
-username_input = driver.find_element_by_name('email')
-username_input.send_keys(username)
+username_input = driver.find_element_by_name('email') #Searches for the email input element
+username_input.send_keys(username) #Puts the username that you have provided above
 
-# Initialize and input password
-password_input = driver.find_element_by_name('password')
-password_input.send_keys(password)
 
-# Initialize and login
+password_input = driver.find_element_by_name('password') #Searches for the password input element
+password_input.send_keys(password) #Puts the password that you have provided above
+
+
+
 login_button = driver.find_element_by_xpath('//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/button[2]')
 login_button.click()
 print(">>Login Complete!")
-time.sleep(10)
+time.sleep(10) #You can change the time that takes the bot to go to the channel that you have provided
 
 driver.get(channelURL)
 print(">Opening The Server Link...")
 time.sleep(5)
 
-# Msg Sending
+
 text = ['asd', 'asdasd', 'afafsf', 'AAAAAA', 'aaaaaa', 'a', 'aa', 'asdaas', 'jsjsjs', 'qweqwe', 'qwerty'] #You can change this word list however you want
 x = random.randint(3, 7) #X in this is case is used to determine the time interval of sending each message
 i = 0
